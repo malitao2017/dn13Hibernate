@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="po">
+	<class name="Emp" table="t_emp">
+		<id name="id" type="integer" column="t_id">
+			<!-- 指明主键id的生成方式 -->
+			<generator class="native">
+				<param name="sequence">emp_seq</param>
+			</generator>
+		</id>
+		<property name="name" type="string" column="t_name" />
+		<property name="salary" type="double" column="t_salary" />
+		<property name="hireDate" type="date" column="t_hire_date" />
+		
+		<!-- 后两种类型比较特殊 -->
+		<property name="lastLogin" type="timestamp" column="t_last_login" />
+		<property name="register" type="yes_no" column="t_register" />
+		
+		<!-- many-to-one 增加部门id  -->
+		<!-- <property name="deptId" type="integer" column="t_dept_id"></property> -->
+		<!-- 上一种不方便，需要重复查询 -->
+		<many-to-one name="dept" class="Dept" column="t_dept_id" ></many-to-one>
+		<!-- 默认为延缓加载 　属性： lazy="false"　-->
+		<!-- 两个sql合并成一条　 属性：  lazy="false" fetch="join"-->
+		
+	</class>
+</hibernate-mapping>

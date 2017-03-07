@@ -1,0 +1,8 @@
+/basic/
+/h1firstlevelcache/
+/h2threadlocal/
+/h3manytoone/
+/h4onetomany/
+/hibernate.cfg.xml
+/log4j.properties
+/po/

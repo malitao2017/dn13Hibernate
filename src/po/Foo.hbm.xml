@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="po">
+	<class name="Foo" table="t_foo">
+		<id name="id" type="java.lang.Integer" column="t_id">
+			<!-- 用来指明主键的生成方式 -->
+			<generator class="identity"></generator>
+		</id>
+		<property name="value" type="java.lang.String" column="t_value" />
+	</class>
+</hibernate-mapping>
+
+
+

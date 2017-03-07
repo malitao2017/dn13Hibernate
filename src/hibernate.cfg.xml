@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC 
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" >
+<hibernate-configuration>
+	<session-factory>
+		<!-- 1.数据库连接信息 -->
+		<property name="connection.url">jdbc:mysql://localhost:3306/test</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		
+		<!-- 2.hibernate配置信息 -->
+		<!-- 方言，针对生成那种数据库的类型的sql语句 -->
+		<property name="dialect">
+			<!-- hibernate自带的方言类，用于特定的数据库方言 -->
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<!-- 将执行sql信息打印到控制台 -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">false</property>
+		
+		<!-- 3.加载表对应映射关系 -->
+		
+		<!-- 基础 -->
+		<mapping resource="po/User.hbm.xml"/>
+		<!-- 数据库对应类型详解 -->
+		<mapping resource="po/Emp.hbm.xml"/>
+		<!-- 一级缓存 -->
+		<mapping resource="po/Foo.hbm.xml"/>
+		<!-- many-to-one -->
+		<mapping resource="po/Dept.hbm.xml"/>
+		<!-- one-to-many -->
+		<mapping resource="po/Item.hbm.xml"/>
+		<mapping resource="po/Order.hbm.xml"/>
+		
+		
+	</session-factory>
+</hibernate-configuration>
+
+<!-- oracle的配置，相关测试：id的自增形式，结论是使用 native的配置 -->
+<!-- <hibernate-configuration> -->
+<!-- 	<session-factory> -->
+<!-- 		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property> -->
+<!-- 		<property name="connection.username">test</property> -->
+<!-- 		<property name="connection.password">test</property> -->
+<!-- 		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property> -->
+<!-- 		<property name="dialect">org.hibernate.dialect.OracleDialect</property> -->
+<!-- 	</session-factory> -->
+<!-- </hibernate-configuration> -->
+

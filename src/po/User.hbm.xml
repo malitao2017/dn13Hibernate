@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="po.User" table="t_user">
+		<id name="id" type="java.lang.Integer" column="t_id">
+			<!-- generator 用来指定主键的生成方式 -->
+			<!-- 要使用这种方式，mysql和oracle都支持，是根据方言配置<property name="dialect">来判断的 -->
+			<generator class="native">
+				<param name="sequence">user_seq</param>
+			</generator>
+		</id>
+		<property name="loginName" type="java.lang.String" column="t_login_name"></property>
+		<property name="password" type="string" column="t_password"></property>
+		<property name="name" type="java.lang.String" column="t_name"></property>
+	</class>
+</hibernate-mapping>
+
